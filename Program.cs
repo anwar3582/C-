@@ -1,32 +1,34 @@
 ﻿using System;
 
-namespace EjercicioExamen
+namespace EjercicioExamen2
 {
-    class Programd
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("una Palabra");
-           String palabra=Console.ReadLine();
-           char[] charPalabra = palabra.ToCharArray();
-            int inc=0;
-            int des = charPalabra.Length;
 
-            bool bError= false;
-
-            while((inc<des)&&(!bError)){
-                
-                if(charPalabra[inc]==charPalabra[des]){
-                    inc++;
-                    des--;
-                } else {
-                    bError=true;
+        int[] intArray = new int[]{1, 3, 6, 4, 1, 2};
+        int sol=SolucionProblema(intArray);
+        Console.Write(sol);
+        }  
+            public int SolucionProblema(int[] A) {
+            int minValue = A[0];
+        do {
+            for (int i = 0; i < A.Length; i++) {
+                if (A[i] < minValue) {
+                    minValue = A[i];
                 }
-
-
             }
-
-            Console.WriteLine("Hello World!");
+        } while (contains(A, ++minValue) == true);
+              return minValue;
+    }
+    public static bool contains(int[] arr, int item) {
+        foreach (int n in arr) {
+            if (item == n) {
+                return true;
+            }
         }
+        return false;
     }
 }
+    }
